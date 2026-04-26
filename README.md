@@ -1,1 +1,751 @@
-# Elisa-s-kitwerken
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Performance: preconnect to external origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://i.postimg.cc" />
+  <link rel="preconnect" href="https://api.web3forms.com" />
+  <!-- Preload hero image (LCP element) -->
+  <link rel="preload" as="image" href="https://i.postimg.cc/8zvT4rT9/IMG-3596.png" />
+  <!-- DNS prefetch for WhatsApp -->
+  <link rel="dns-prefetch" href="https://wa.me" />
+  <title>Elisa's Kitwerken – Kitter in Poppel & Ravels | Professioneel Kitwerk Kempen</title>
+  <meta name="description" content="Op zoek naar een kitter in Poppel of Ravels? Elisa's Kitwerken is gespecialiseerd in dagkanten ramen, betonpanelen, brandwerende afkitting en badkamers. VCA gecertificeerd. Vraag nu een gratis offerte aan!" />
+  <meta name="keywords" content="kitter poppel, kitwerken ravels, kitter kempen, dagkanten ramen poppel, brandwerende afkitting ravels, kitwerk badkamer, industriebouw kitwerk kempen, VCA kitter, kitter turnhout, kitter mol, kitter geel" />
+  <meta name="geo.region" content="BE-VAN" />
+  <meta name="geo.placename" content="Poppel, Ravels" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://elisaskitwerken.be/" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Elisa's Kitwerken – Kitter in Poppel & Ravels" />
+  <meta property="og:description" content="Professioneel kitwerk in Poppel, Ravels en omgeving. Dagkanten ramen, betonpanelen, brandwerende afkitting, badkamers. VCA gecertificeerd. Gratis offerte!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="nl_BE" />
+  <!-- Schema.org Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Elisa's Kitwerken",
+    "description": "Professioneel kitwerk in Poppel, Ravels en de Kempen. Specialist in dagkanten ramen, betonpanelen, brandwerende afkitting, badkamers en vloeren.",
+    "telephone": "+32491952326",
+    "email": "elisaskitwerken@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ravels",
+      "addressRegion": "Antwerpen",
+      "addressCountry": "BE"
+    },
+    "areaServed": ["Poppel","Ravels","Turnhout","Mol","Geel","Hoogstraten","Merksplas","Arendonk","Retie","Baarle-Hertog"],
+    "hasCredential": ["VCA Certificaat","Hoogtewerkerbewijs"],
+    "priceRange": "€€",
+    "openingHours": "Mo-Fr 08:00-18:00"
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f5f0e8; --parchment: #ede6d6; --dark: #1a1612; --mid: #3d352c;
+      --rust: #b84c2a; --rust-light: #d4613a; --sand: #c9a96e; --sand-light: #e0c99a;
+      --white: #faf8f4; --grey: #7a6f63; --border: rgba(26,22,18,0.1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; cursor: none; }
+
+```
+/* CURSOR */
+.cursor { width: 10px; height: 10px; background: var(--rust); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999; transition: transform 0.15s ease; transform: translate(-50%,-50%); }
+.cursor-ring { width: 36px; height: 36px; border: 1.5px solid var(--rust); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99998; transition: transform 0.35s ease, opacity 0.3s; transform: translate(-50%,-50%); opacity: 0.6; }
+
+/* WHATSAPP FLOATING BUTTON */
+.wa-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 9000; width: 56px; height: 56px; border-radius: 50%; background: #25D366; box-shadow: 0 4px 20px rgba(37,211,102,0.4); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.wa-btn:hover { transform: scale(1.12); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+.wa-btn svg { width: 30px; height: 30px; fill: #fff; }
+.wa-tooltip { position: absolute; right: 68px; background: var(--dark); color: var(--white); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; white-space: nowrap; padding: 0.5rem 0.85rem; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity 0.2s; top: 50%; transform: translateY(-50%); }
+.wa-btn:hover .wa-tooltip { opacity: 1; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 4rem; transition: background 0.4s, padding 0.4s, box-shadow 0.4s; }
+nav.scrolled { background: rgba(245,240,232,0.96); backdrop-filter: blur(16px); padding: 0.85rem 4rem; box-shadow: 0 1px 0 var(--border); }
+
+/* LOGO */
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.logo-badge {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--rust);
+  box-shadow: 0 0 0 4px rgba(184,76,42,0.12), 0 0 0 7px rgba(184,76,42,0.06);
+  flex-shrink: 0;
+  background: var(--cream);
+}
+.logo-badge img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  mix-blend-mode: multiply;
+}
+.logo-text { display: flex; flex-direction: column; line-height: 1; }
+.logo-text-top { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 900; color: var(--dark); letter-spacing: 0.02em; }
+.logo-text-bottom { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--rust); margin-top: 2px; }
+
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); text-decoration: none; position: relative; transition: color 0.2s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--rust); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+.nav-links a:hover { color: var(--rust); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta { background: var(--rust) !important; color: var(--white) !important; padding: 0.6rem 1.6rem !important; border-radius: 1px; }
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--rust-light) !important; }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+.hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 4rem 5rem; background: var(--cream); position: relative; z-index: 2; min-height: 100vh; }
+.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--rust); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; opacity: 0; animation: slideUp 0.8s 0.3s forwards; }
+.hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--rust); }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--dark); opacity: 0; animation: slideUp 0.9s 0.5s forwards; }
+.hero h1 em { font-style: italic; color: var(--rust); }
+.hero-sub { margin-top: 2rem; font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--grey); max-width: 420px; opacity: 0; animation: slideUp 0.9s 0.7s forwards; }
+.hero-actions { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem; opacity: 0; animation: slideUp 0.9s 0.9s forwards; }
+.btn-rust { background: var(--rust); color: var(--white); font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.9rem 2.2rem; text-decoration: none; border-radius: 1px; display: inline-block; transition: background 0.2s, transform 0.2s; }
+.btn-rust:hover { background: var(--rust-light); transform: translateY(-2px); }
+.btn-ghost { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s, gap 0.2s; }
+.btn-ghost:hover { color: var(--rust); gap: 0.85rem; }
+.btn-ghost::after { content: '→'; }
+.hero-badges { display: flex; gap: 0.75rem; margin-top: 3rem; flex-wrap: wrap; opacity: 0; animation: slideUp 0.9s 1.1s forwards; }
+.badge { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); border: 1px solid var(--border); padding: 0.45rem 0.9rem; border-radius: 999px; background: var(--white); display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
+.badge-cta { background: var(--rust); color: var(--white) !important; border-color: var(--rust); font-weight: 500; letter-spacing: 0.12em; }
+.badge-cta:hover { background: var(--rust-light); border-color: var(--rust-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184,76,42,0.35); }
+a.badge:hover { border-color: var(--rust); color: var(--rust); }
+.hero-right { position: relative; overflow: hidden; min-height: 100vh; }
+.hero-img-main { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; opacity: 0; animation: fadeIn 1.2s 0.4s forwards; }
+.hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--cream) 0%, transparent 20%); z-index: 1; }
+
+/* TICKER */
+.ticker { background: var(--rust); color: var(--white); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: inline-flex; animation: ticker 26s linear infinite; }
+.ticker-item { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0 3rem; }
+.ticker-item::before { content: '✦'; margin-right: 3rem; opacity: 0.7; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* SECTION BASE */
+.tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+.tag::before { content: ''; width: 24px; height: 1px; background: var(--rust); }
+h2.serif { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.1; color: var(--dark); }
+h2.serif em { font-style: italic; color: var(--rust); }
+.body-text { font-size: 1rem; font-weight: 300; line-height: 1.85; color: var(--grey); max-width: 520px; }
+
+/* ABOUT */
+.about { background: var(--white); padding: 0; }
+.about-content { padding: 6rem 4rem; max-width: 760px; margin: 0 auto; }
+.about-content .body-text { margin-top: 1.5rem; }
+.about-content .body-text + .body-text { margin-top: 1rem; }
+.cert-row { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+.cert-pill { display: flex; align-items: center; gap: 0.5rem; background: var(--parchment); border: 1px solid var(--sand-light); padding: 0.55rem 1.1rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); border-radius: 1px; }
+.cert-pill .dot { width: 6px; height: 6px; background: var(--rust); border-radius: 50%; flex-shrink: 0; }
+
+/* SERVICES */
+.services { background: var(--dark); padding: 7rem 4rem; }
+.services .tag { color: var(--sand); }
+.services .tag::before { background: var(--sand); }
+.services h2.serif { color: var(--cream); }
+.services h2.serif em { color: var(--sand); }
+.services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+.svc { background: var(--dark); padding: 3rem 2.5rem; position: relative; overflow: hidden; transition: background 0.4s; border: 1px solid rgba(255,255,255,0.04); }
+.svc:hover { background: var(--mid); }
+.svc-num { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: rgba(201,169,110,0.07); line-height: 1; position: absolute; top: 1.5rem; right: 2rem; transition: color 0.4s; }
+.svc:hover .svc-num { color: rgba(201,169,110,0.14); }
+.svc-icon { font-size: 1.6rem; margin-bottom: 1.5rem; display: block; }
+.svc h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--cream); margin-bottom: 0.75rem; line-height: 1.3; }
+.svc p { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: rgba(201,169,110,0.6); }
+.svc-line { position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--rust); transition: width 0.4s ease; }
+.svc:hover .svc-line { width: 100%; }
+
+/* SHOWCASE */
+.showcase { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; grid-template-rows: 420px; gap: 4px; background: var(--dark); }
+.showcase-large { grid-row: span 1; }
+.showcase-item { position: relative; overflow: hidden; }
+.showcase-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.showcase-item:hover img { transform: scale(1.06); }
+.showcase-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 1.25rem 1.25rem; background: linear-gradient(to top, rgba(26,22,18,0.88) 0%, transparent 100%); display: flex; flex-direction: column; gap: 0.3rem; }
+.showcase-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); }
+.showcase-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.2; }
+.showcase-large .showcase-title { font-size: 1.4rem; }
+@media (max-width: 1024px) {
+  .showcase { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 260px; }
+}
+@media (max-width: 600px) {
+  .showcase { grid-template-columns: 1fr; grid-template-rows: repeat(4, 260px); }
+}
+
+/* WAAROM */
+.why { background: var(--parchment); display: grid; grid-template-columns: 1fr 1fr; padding: 0; }
+.why-content { padding: 7rem 5rem 7rem 4rem; }
+.why-list { list-style: none; margin-top: 2.5rem; }
+.why-list li { display: grid; grid-template-columns: 36px 1fr; gap: 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(26,22,18,0.08); align-items: start; }
+.why-list li:last-child { border-bottom: none; }
+.why-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--rust); letter-spacing: 0.1em; margin-top: 3px; }
+.why-list h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.35rem; }
+.why-list p { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--grey); }
+.why-visual { position: relative; overflow: hidden; min-height: 500px; }
+.why-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.why-visual-badge { position: absolute; top: 3rem; left: 3rem; background: var(--rust); color: var(--white); padding: 1.5rem; max-width: 200px; z-index: 2; }
+.why-visual-badge p { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; line-height: 1.25; }
+.why-visual-badge span { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.8; display: block; margin-top: 0.5rem; }
+
+/* CONTACT */
+.contact { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; padding: 0; }
+.contact-left { padding: 7rem 4rem; border-right: 1px solid rgba(255,255,255,0.07); }
+.contact-left .tag { color: var(--sand); }
+.contact-left .tag::before { background: var(--sand); }
+.contact-left h2.serif { color: var(--cream); }
+.contact-left h2.serif em { color: var(--sand); }
+.contact-left .body-text { color: rgba(201,169,110,0.5); margin-top: 1.25rem; }
+.contact-details { margin-top: 3rem; }
+.contact-detail { display: flex; align-items: center; gap: 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.contact-detail:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+.contact-detail-icon { width: 42px; height: 42px; border: 1px solid rgba(201,169,110,0.25); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.contact-detail-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand); opacity: 0.6; margin-bottom: 0.2rem; }
+.contact-detail-val { font-size: 0.95rem; color: var(--cream); text-decoration: none; transition: color 0.2s; }
+.contact-detail-val:hover { color: var(--sand); }
+.contact-right { padding: 7rem 4rem; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sand); opacity: 0.7; display: block; margin-bottom: 0.5rem; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s, background 0.2s; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--sand); background: rgba(201,169,110,0.05); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(201,169,110,0.22); }
+.form-group select option { background: var(--dark); color: var(--cream); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-submit { width: 100%; background: var(--rust); color: var(--white); font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 1.1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; }
+.form-submit:hover { background: var(--rust-light); }
+
+/* GALLERY OVERLAY */
+.gallery-overlay { display: none; position: fixed; inset: 0; background: #0a0806; z-index: 9999; flex-direction: column; }
+.gallery-overlay.active { display: flex; }
+.gallery-main-area { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: #000; }
+#galleryMainImg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: opacity 0.25s ease; }
+.gallery-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); color: #fff; width: 48px; height: 48px; font-size: 1.3rem; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.2s; }
+.gallery-nav-btn:hover { background: rgba(184,76,42,0.7); }
+.gallery-top-bar { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent); z-index: 10; }
+.gallery-counter { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.7); text-transform: uppercase; }
+.gallery-close { background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; line-height: 1; padding: 0; opacity: 0.8; transition: opacity 0.2s; }
+.gallery-close:hover { opacity: 1; }
+.gallery-thumb-bar { background: rgba(0,0,0,0.85); padding: 0.6rem 1rem; display: flex; gap: 6px; justify-content: flex-start; align-items: center; overflow-x: auto; flex-shrink: 0; }
+.gallery-thumb-bar::-webkit-scrollbar { height: 3px; }
+.gallery-thumb-bar::-webkit-scrollbar-thumb { background: rgba(184,76,42,0.6); border-radius: 2px; }
+.gallery-thumb { width: 56px; height: 44px; object-fit: cover; cursor: pointer; border-radius: 2px; opacity: 0.45; transition: opacity 0.2s, border 0.2s; border: 2px solid transparent; flex-shrink: 0; }
+.gallery-thumb.active { opacity: 1; border-color: #b84c2a; }
+@media (max-width: 600px) {
+  .gallery-nav-btn { width: 38px; height: 38px; font-size: 1rem; }
+  .gallery-thumb { width: 44px; height: 34px; }
+}
+footer { background: #111009; padding: 2rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.footer-logo-text { display: flex; flex-direction: column; }
+.footer-logo-text-top { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 900; color: rgba(255,255,255,0.7); }
+.footer-logo-text-bottom { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sand); opacity: 0.7; margin-top: 2px; }
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.22); text-transform: uppercase; }
+.footer-links { display: flex; gap: 2rem; list-style: none; }
+.footer-links a { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--sand); }
+
+/* CAP desktop width so nothing stretches too wide */
+@media (min-width: 1400px) {
+  .hero-left { padding-left: calc((100vw - 1400px) / 2 + 4rem); }
+  .about-content { padding-left: calc((100vw - 1400px) / 4 + 4rem); padding-right: calc((100vw - 1400px) / 4 + 4rem); }
+  .services { padding-left: calc((100vw - 1400px) / 2 + 4rem); padding-right: calc((100vw - 1400px) / 2 + 4rem); }
+  .why-content { padding-left: calc((100vw - 1400px) / 2 + 4rem); }
+  .contact-left { padding-left: calc((100vw - 1400px) / 2 + 4rem); }
+  .contact-right { padding-right: calc((100vw - 1400px) / 2 + 4rem); }
+}
+@keyframes slideUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+
+/* RESPONSIVE — tablet & desktop: single column, centered, like mobile but wider */
+@media (max-width: 1024px) {
+  nav, nav.scrolled { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+
+  /* Hero: full width, no split */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 7rem 2rem 3rem; min-height: auto; }
+  .hero-right { min-height: 55vw; max-height: 420px; }
+  .hero h1 { font-size: clamp(2.8rem, 8vw, 4.5rem); }
+
+  /* About: single column */
+  .about { grid-template-columns: 1fr; }
+  .about-content { padding: 3.5rem 2rem; max-width: 100%; }
+
+  /* Why: single column */
+  .why { grid-template-columns: 1fr; }
+  .why-content { padding: 4rem 2rem; }
+  .why-visual { min-height: 340px; }
+
+  /* Contact: single column */
+  .contact { grid-template-columns: 1fr; }
+  .contact-left { padding: 4rem 2rem; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .contact-right { padding: 3rem 2rem; }
+
+  /* Services */
+  .services { padding: 4rem 2rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+  /* Showcase */
+  .showcase { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 240px; }
+  .showcase-large { grid-row: span 1; }
+
+  /* Footer */
+  footer { padding: 1.5rem 2rem; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+}
+
+@media (max-width: 600px) {
+  .hero-left { padding: 6rem 1.5rem 3rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .showcase { grid-template-columns: 1fr; grid-template-rows: repeat(4, 240px); }
+  .form-row { grid-template-columns: 1fr; }
+  .about-content { padding: 3rem 1.5rem; }
+  .why-content { padding: 3rem 1.5rem; }
+  .contact-left, .contact-right { padding: 3rem 1.5rem; }
+  .services { padding: 3rem 1.5rem; }
+  footer { padding: 1.5rem; }
+  .hero-badges { flex-wrap: wrap; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- WHATSAPP BUTTON -->
+
+<a class="wa-btn" href="https://wa.me/32491952326" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <span class="wa-tooltip">+32 491 95 23 26</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- NAV -->
+
+<nav id="nav">
+  <a class="nav-logo" href="#home">
+    <div class="logo-badge">
+      <img loading="lazy" decoding="async" src="https://i.postimg.cc/d0KBg8v2/IMG-3577.jpg" alt="Elisa's Kitwerken logo" />
+    </div>
+    <div class="logo-divider"></div>
+    <div class="logo-text">
+      <span class="logo-text-top">Elisa's</span>
+      <span class="logo-text-bottom">Kitwerken</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#specialisaties">Specialisaties</a></li>
+    <li><a href="#waarom">Waarom wij</a></li>
+    <li><a href="#contact" class="nav-cta">Offerte aanvragen</a></li>
+  </ul>
+</nav>
+
+<!-- HERO — photo: a32540d8 (unique here) -->
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Ravels · VCA Gecertificeerd</div>
+    <h1>Uw kitter in<br><em>Ravels.</em></h1>
+    <p class="hero-sub">Professioneel kitwerk voor industriebouw en woningen. Dagkanten ramen, betonpanelen, badkamers en meer — strak, duurzaam en altijd met oog voor het perfecte eindresultaat.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-rust">Offerte aanvragen</a>
+      <a href="#specialisaties" class="btn-ghost">Ons werk bekijken</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge">Binnen 24u reactie</span>
+      <a href="#contact" class="badge badge-cta" style="text-decoration:none; cursor:pointer;">Gratis offerte →</a>
+      <span class="badge">Snelle planning mogelijk</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-overlay"></div>
+    <img class="hero-img-main" src="https://i.postimg.cc/8zvT4rT9/IMG-3596.png" alt="Professioneel kitwerk aan ramen in Poppel - Elisa's Kitwerken" fetchpriority="high" decoding="sync" />
+  </div>
+</section>
+
+<!-- TICKER -->
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Dagkanten bij ramen</span><span class="ticker-item">Betonpanelen</span><span class="ticker-item">Brandwerende afkitting</span><span class="ticker-item">Badkamers</span><span class="ticker-item">Vloeren</span><span class="ticker-item">Industriebouw</span><span class="ticker-item">Kitwerken op maat</span><span class="ticker-item">VCA Gecertificeerd</span>
+    <span class="ticker-item">Dagkanten bij ramen</span><span class="ticker-item">Betonpanelen</span><span class="ticker-item">Brandwerende afkitting</span><span class="ticker-item">Badkamers</span><span class="ticker-item">Vloeren</span><span class="ticker-item">Industriebouw</span><span class="ticker-item">Kitwerken op maat</span><span class="ticker-item">VCA Gecertificeerd</span>
+  </div>
+</div>
+
+<!-- OVER ONS — photo: IMG-3591 (unique here) -->
+
+<section class="about" id="over">
+
+  <div class="about-content">
+    <div class="reveal">
+      <div class="tag">Over ons</div>
+      <h2 class="serif">Betrouwbaar,<br><em>ervaren</em> &amp; precies.</h2>
+    </div>
+    <p class="body-text reveal reveal-delay-1">Bent u op zoek naar een betrouwbare <strong>kitter in Poppel</strong> of <strong>kitwerken in Ravels</strong>? Dan bent u bij ons aan het juiste adres. Elisa's Kitwerken is gespecialiseerd in het professioneel afwerken van kitwerken, met een sterke focus op dagkanten van ramen en betonpanelen binnen de industriebouw.</p>
+    <p class="body-text reveal reveal-delay-2">Naast industriebouw kunt u bij ons ook terecht voor <strong>kitwerk in woningen</strong> en renovaties in de Kempen — van badkamers tot vloeren. Met oog voor detail zorgen wij ervoor dat elk project technisch én esthetisch perfect is.</p>
+    <div class="cert-row reveal reveal-delay-3">
+      <div class="cert-pill"><span class="dot"></span>VCA Certificaat</div>
+      <div class="cert-pill"><span class="dot"></span>Hoogtewerkerbewijs</div>
+      <div class="cert-pill"><span class="dot"></span>Goedgekeurde materialen</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALISATIES -->
+
+<section class="services" id="specialisaties">
+  <div class="services-header">
+    <div class="reveal">
+      <div class="tag">Wat wij doen</div>
+      <h2 class="serif">Onze <em>specialisaties</em></h2>
+    </div>
+    <button class="btn-rust reveal reveal-delay-1" onclick="openGallery()" style="display:none;">Bekijk ons werk</button>
+  </div>
+  <div class="services-grid reveal">
+    <div class="svc" onclick="openGallery(0)" style="cursor:pointer;">
+      <span class="svc-num">01</span>
+      <span class="svc-icon">🪟</span>
+      <h3>Dagkanten bij ramen</h3>
+      <p>Strak en nauwkeurig afkitten van dagkanten rondom ramen voor een perfecte, waterdichte afwerking.</p>
+      <div style="margin-top:1.25rem; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--rust); display:flex; align-items:center; gap:0.4rem;">Bekijk foto's <span>→</span></div>
+      <div class="svc-line"></div>
+    </div>
+    <div class="svc" onclick="openGallery(1)" style="cursor:pointer;"><span class="svc-num">02</span><span class="svc-icon">🏗️</span><h3>Betonpanelen</h3><p>Kitwerk aan betonpanelen in de industriebouw, inclusief brandwerende afkitting waar vereist.</p><div style="margin-top:1.25rem; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--rust); display:flex; align-items:center; gap:0.4rem;">Bekijk foto's <span>→</span></div><div class="svc-line"></div></div>
+    <div class="svc"><span class="svc-num">03</span><span class="svc-icon">🔥</span><h3>Brandwerende afkitting</h3><p>Gecertificeerde brandwerende afkitting voor betonpanelen in industriële projecten.</p><div class="svc-line"></div></div>
+    <div class="svc"><span class="svc-num">04</span><span class="svc-icon">🚿</span><h3>Badkamers &amp; sanitair</h3><p>Nette en duurzame afkitting van badkamers, douches en sanitaire ruimtes in woningen.</p><div class="svc-line"></div></div>
+    <div class="svc"><span class="svc-num">05</span><span class="svc-icon">🏠</span><h3>Vloeren</h3><p>Professioneel kitwerk aan vloervoegen voor nieuwbouw en renovatieprojecten.</p><div class="svc-line"></div></div>
+    <div class="svc" onclick="openGallery(5)" style="cursor:pointer;"><span class="svc-num">06</span><span class="svc-icon">🔧</span><h3>Diverse kitwerken op maat</h3><p>Van klein tot groot — oplossingen op maat voor elk project, industrieel of residentieel.</p><div style="margin-top:1.25rem; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--rust); display:flex; align-items:center; gap:0.4rem;">Bekijk foto's <span>→</span></div><div class="svc-line"></div></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX GALLERY -->
+
+<div id="galleryOverlay" class="gallery-overlay">
+  <div class="gallery-main-area">
+    <div class="gallery-top-bar">
+      <span id="galleryCounter" class="gallery-counter"></span>
+      <button class="gallery-close" onclick="closeGallery()">&times;</button>
+    </div>
+    <img id="galleryMainImg" src="" alt="" />
+    <button class="gallery-nav-btn" onclick="prevImg()" style="left:0.75rem;">&#8592;</button>
+    <button class="gallery-nav-btn" onclick="nextImg()" style="right:0.75rem;">&#8594;</button>
+  </div>
+  <div id="galleryThumbs" class="gallery-thumb-bar"></div>
+</div>
+
+<!-- WORK SHOWCASE -->
+
+<div class="showcase">
+  <div class="showcase-item showcase-large">
+    <img loading="lazy" decoding="async" src="https://i.postimg.cc/N041VSpz/IMG-3590.png" alt="Dagkanten afkitten bij ramen in Poppel - kitter Elisa's Kitwerken" />
+    <div class="showcase-label">
+      <span class="showcase-tag">01</span>
+      <span class="showcase-title">Dagkanten bij ramen</span>
+    </div>
+  </div>
+  <div class="showcase-item">
+    <img loading="lazy" decoding="async" src="https://i.postimg.cc/906DnYTp/IMG-3593.png" alt="Industriebouw kitwerk betonpanelen Ravels - Elisa's Kitwerken" />
+    <div class="showcase-label">
+      <span class="showcase-tag">02</span>
+      <span class="showcase-title">Industriebouw</span>
+    </div>
+  </div>
+  <div class="showcase-item">
+    <img loading="lazy" decoding="async" src="https://i.postimg.cc/1Xt0QBfJ/IMG-3591.png" alt="Professioneel kitwerk vakmanschap Kempen - Elisa's Kitwerken Poppel" />
+    <div class="showcase-label">
+      <span class="showcase-tag">03</span>
+      <span class="showcase-title">Vakmanschap</span>
+    </div>
+  </div>
+  <div class="showcase-item">
+    <img loading="lazy" decoding="async" src="https://i.postimg.cc/ZRtFYnb8/IMG-3606.png" alt="Kitwerk op maat badkamer vloer Ravels - Elisa's Kitwerken" />
+    <div class="showcase-label">
+      <span class="showcase-tag">04</span>
+      <span class="showcase-title">Kitwerk op maat</span>
+    </div>
+  </div>
+</div>
+
+<!-- WAAROM WIJ -->
+
+<section class="why" id="waarom">
+  <div class="why-content">
+    <div class="reveal">
+      <div class="tag">Waarom kiezen voor ons</div>
+      <h2 class="serif">Kwaliteit die<br>u kunt <em>vertrouwen.</em></h2>
+    </div>
+    <ul class="why-list">
+      <li class="reveal reveal-delay-1"><span class="why-num">01</span><div><h4>VCA Gecertificeerd</h4><p>Wij werken met een geldig VCA-certificaat — veiligheid en professionaliteit op elke locatie.</p></div></li>
+      <li class="reveal reveal-delay-1"><span class="why-num">02</span><div><h4>Hoogtewerkerbewijs</h4><p>Gecertificeerd voor werken op hoogte, ook bij grote industriële projecten.</p></div></li>
+      <li class="reveal reveal-delay-2"><span class="why-num">03</span><div><h4>Kwalitatieve materialen</h4><p>Wij werken uitsluitend met goedgekeurde kitproducten voor een duurzaam resultaat.</p></div></li>
+      <li class="reveal reveal-delay-2"><span class="why-num">04</span><div><h4>Afspraken nakomen</h4><p>Efficiënt, klantgericht en betrouwbaar — wij komen onze beloften altijd na.</p></div></li>
+      <li class="reveal reveal-delay-3"><span class="why-num">05</span><div><h4>Lokaal &amp; persoonlijk</h4><p>Actief in Poppel, Ravels en omgeving. Persoonlijk contact en maatwerk voor elk project.</p></div></li>
+    </ul>
+  </div>
+  <div class="why-visual reveal">
+    <div class="why-visual-badge"><p>100% Kwaliteits&shy;garantie</p><span>Elk project, elke keer</span></div>
+    <img loading="lazy" decoding="async" src="https://i.postimg.cc/8cDskyyb/IMG-3626.png" alt="Kitwerk kwaliteit" />
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <div class="tag">Contact</div>
+    <h2 class="serif">Vraag een<br><em>offerte</em> aan.</h2>
+    <p class="body-text">Interesse of een offerte op maat? Neem gerust contact op — wij helpen u graag verder!</p>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div><div class="contact-detail-label">Regio</div><span class="contact-detail-val">Poppel &amp; Ravels, België</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div><div class="contact-detail-label">WhatsApp / Telefoon</div><a href="https://wa.me/32491952326" class="contact-detail-val">+32 491 95 23 26</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div><div class="contact-detail-label">E-mail</div><a href="mailto:elisaskitwerken@gmail.com" class="contact-detail-val">elisaskitwerken@gmail.com</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="50902c2a-fcb8-4047-9e16-f70e1908bf38" />
+      <input type="hidden" name="subject" value="Nieuwe offerte aanvraag - Elisa's Kitwerken" />
+      <input type="hidden" name="from_name" value="Elisa's Kitwerken Website" />
+      <input type="hidden" name="redirect" value="false" />
+      <div class="form-row">
+        <div class="form-group"><label>Voornaam</label><input type="text" name="voornaam" placeholder="Jan" required /></div>
+        <div class="form-group"><label>Achternaam</label><input type="text" name="achternaam" placeholder="Janssen" required /></div>
+      </div>
+      <div class="form-group"><label>E-mailadres</label><input type="email" name="email" placeholder="jan@voorbeeld.be" required /></div>
+      <div class="form-group"><label>Telefoon</label><input type="tel" name="telefoon" placeholder="+32 ..." /></div>
+      <div class="form-group">
+        <label>Type project</label>
+        <select name="project_type">
+          <option value="">Selecteer een categorie</option>
+          <option>Dagkanten bij ramen</option>
+          <option>Betonpanelen (industriebouw)</option>
+          <option>Brandwerende afkitting</option>
+          <option>Badkamer / sanitair</option>
+          <option>Vloeren</option>
+          <option>Ander / op maat</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Uw bericht</label><textarea name="message" placeholder="Beschrijf uw project of stel uw vraag..." required></textarea></div>
+      <button type="submit" class="form-submit" id="submitBtn">Verstuur aanvraag →</button>
+      <div id="formMsg" style="display:none; margin-top:1rem; font-family:'DM Mono',monospace; font-size:0.75rem; letter-spacing:0.1em; text-align:center; padding:0.75rem; border-radius:2px;"></div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<!-- SEO -->
+
+<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;" aria-hidden="true">
+  Kitter Poppel, kitter Ravels, kitwerken Poppel, kitwerken Ravels, kitwerken Turnhout, kitter Turnhout, kitwerken Mol, kitter Mol, kitwerken Geel, kitter Geel, kitwerken Hoogstraten, kitter Hoogstraten, kitwerken Merksplas, kitter Merksplas, kitwerken Arendonk, kitter Arendonk, kitwerken Retie, kitter Retie, kitwerken Baarle-Hertog, professioneel kitwerk Kempen, dagkanten ramen Poppel, brandwerende afkitting Ravels, kitwerken badkamer Poppel, industrieel kitwerk Kempen.
+</div>
+
+<footer>
+  <a class="footer-logo" href="#home">
+    <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;border:2px solid var(--rust);flex-shrink:0;background:var(--cream);">
+      <img loading="lazy" decoding="async" src="https://i.postimg.cc/d0KBg8v2/IMG-3577.jpg" style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;" alt="Logo" />
+    </div>
+    <div class="footer-logo-text">
+      <span class="footer-logo-text-top">Elisa's Kitwerken</span>
+      <span class="footer-logo-text-bottom">Poppel &amp; Ravels</span>
+    </div>
+  </a>
+  <p class="footer-copy">© 2025 Elisa's Kitwerken · <span itemprop="addressLocality">Poppel &amp; Ravels</span>, België · <a href="tel:+32491952326" style="color:inherit;text-decoration:none;">+32 491 95 23 26</a></p>
+  <ul class="footer-links">
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#specialisaties">Specialisaties</a></li>
+    <li><a href="#waarom">Waarom wij</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function animate() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animate);
+  })();
+  document.querySelectorAll('a, button, .svc, .gallery-img').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.opacity = '0.2'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.opacity = '0.6'; });
+  });
+  // Scroll nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+  // Web3Forms contact form
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const msg = document.getElementById('formMsg');
+      btn.textContent = 'Versturen...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(contactForm)
+        });
+        const data = await res.json();
+        if (data.success) {
+          msg.style.display = 'block';
+          msg.style.background = 'rgba(50,180,100,0.15)';
+          msg.style.color = '#4caf7d';
+          msg.style.border = '1px solid rgba(50,180,100,0.3)';
+          msg.textContent = '✓ Uw aanvraag is verstuurd! We nemen snel contact op.';
+          contactForm.reset();
+        } else {
+          throw new Error('Failed');
+        }
+      } catch {
+        msg.style.display = 'block';
+        msg.style.background = 'rgba(184,76,42,0.15)';
+        msg.style.color = '#b84c2a';
+        msg.style.border = '1px solid rgba(184,76,42,0.3)';
+        msg.textContent = '✗ Er ging iets mis. Probeer opnieuw of bel ons.';
+      }
+      btn.textContent = 'Verstuur aanvraag →';
+      btn.disabled = false;
+    });
+  }
+  const initReveal = () => {
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  };
+  'requestIdleCallback' in window ? requestIdleCallback(initReveal) : setTimeout(initReveal, 200);
+
+  // Gallery lightbox - multiple galleries per card
+  const galleries = {
+    0: [
+      'https://i.postimg.cc/C544Q0V6/IMG-3604.png',
+      'https://i.postimg.cc/pXqZQPCm/IMG-3605.png',
+      'https://i.postimg.cc/ZRtFYnb8/IMG-3606.png',
+      'https://i.postimg.cc/HnSyMkgB/IMG-3610.png',
+      'https://i.postimg.cc/7YWzYhXY/IMG-3611.png',
+      'https://i.postimg.cc/XN2GQqRF/IMG-3612.png',
+      'https://i.postimg.cc/FHSYrZ72/IMG-3613.png',
+      'https://i.postimg.cc/qB2DKfSP/IMG-3602.png',
+      'https://i.postimg.cc/q7tjMW8B/IMG-3603.png',
+    ],
+    1: [
+      'https://i.postimg.cc/gJ7D9swd/IMG-3622.png',
+      'https://i.postimg.cc/447CYFQ5/IMG-3621.png',
+      'https://i.postimg.cc/nLzR6CdD/IMG-3620.png',
+      'https://i.postimg.cc/mD1dgKWk/IMG-3619.png',
+      'https://i.postimg.cc/Dy640T3v/IMG-3627.png',
+      'https://i.postimg.cc/8cDskyyb/IMG-3626.png',
+      'https://i.postimg.cc/bwdrvSTp/IMG-3625.png',
+      'https://i.postimg.cc/nr0VFn9h/IMG-3624.png',
+    ],
+    5: [
+      'https://i.postimg.cc/qvQ0f3vy/IMG-3639.png',
+      'https://i.postimg.cc/nVKPwtzk/IMG-3638.png',
+      'https://i.postimg.cc/qh7s666f/IMG-3637.png',
+    ],
+  };
+
+  let galleryImgs = [];
+  let currentImg = 0;
+  const overlay = document.getElementById('galleryOverlay');
+  const mainImg = document.getElementById('galleryMainImg');
+  const counter = document.getElementById('galleryCounter');
+  const thumbsEl = document.getElementById('galleryThumbs');
+
+  function buildThumbs() {
+    thumbsEl.innerHTML = '';
+    galleryImgs.forEach((src, i) => {
+      const t = document.createElement('img');
+      t.src = src;
+      t.className = 'gallery-thumb';
+      t.onclick = () => showImg(i);
+      thumbsEl.appendChild(t);
+    });
+  }
+
+  function showImg(i) {
+    currentImg = (i + galleryImgs.length) % galleryImgs.length;
+    mainImg.style.opacity = '0';
+    setTimeout(() => { mainImg.src = galleryImgs[currentImg]; mainImg.style.opacity = '1'; }, 150);
+    counter.textContent = (currentImg + 1) + ' / ' + galleryImgs.length;
+    thumbsEl.querySelectorAll('img').forEach((t, idx) => {
+      t.classList.toggle('active', idx === currentImg);
+    });
+    // Scroll active thumb into view
+    const activeThumb = thumbsEl.querySelectorAll('img')[currentImg];
+    if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  function openGallery(cardIndex) {
+    galleryImgs = galleries[cardIndex] || galleries[0];
+    buildThumbs();
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    showImg(0);
+  }
+
+  function closeGallery() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function nextImg() { showImg(currentImg + 1); }
+  function prevImg() { showImg(currentImg - 1); }
+
+  // Keyboard + swipe
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'ArrowRight') nextImg();
+    if (e.key === 'ArrowLeft') prevImg();
+    if (e.key === 'Escape') closeGallery();
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  overlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  overlay.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? nextImg() : prevImg();
+  });
+</script>
+
+</body>
+</html>
