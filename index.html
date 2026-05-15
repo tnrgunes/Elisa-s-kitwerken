@@ -751,5 +751,25 @@ footer { background: #111009; padding: 2rem 4rem; display: flex; align-items: ce
   });
 </script>
 
-</body>
-</html>
+<!-- COOKIE BANNER -->
+
+<div id="cookieBanner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:99990; background:var(--dark); border-top:1px solid rgba(201,169,110,0.2); padding:1.25rem 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+  <p style="font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:300; color:rgba(245,240,232,0.75); margin:0; max-width:600px;">
+    🍪 Deze website gebruikt geen tracking- of marketingcookies. Wij respecteren uw privacy.
+    <a href="/privacy-policy.html" style="color:#c9a96e; text-decoration:none; margin-left:0.4rem;">Meer info →</a>
+  </p>
+  <button onclick="acceptCookies()" style="background:var(--rust); color:#fff; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.65rem 1.5rem; border:none; border-radius:999px; cursor:pointer; white-space:nowrap; transition:background 0.2s; flex-shrink:0;">
+    Begrepen ✓
+  </button>
+</div>
+
+<script>
+  function acceptCookies() {
+    document.getElementById('cookieBanner').style.display = 'none';
+    localStorage.setItem('cookieAccepted', 'true');
+  }
+  // Show banner if not accepted yet
+  if (!localStorage.getItem('cookieAccepted')) {
+    document.getElementById('cookieBanner').style.display = 'flex';
+  }
+</script>
